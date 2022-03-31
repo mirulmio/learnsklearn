@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler #standarisation ; for all columns for example: 20% increment for all columns
 
 from sklearn.decomposition import PCA
 from sklearn.svm import SVC
@@ -32,11 +32,11 @@ st.sidebar.write("<a href='https://www.linkedin.com/in/yong-poh-yu/'>Dr. Yong Po
 choice = st.sidebar.radio(
     "Choose a dataset",   
     ('Default', 'User-defined '),
-    index = 0
+    index = 0 #means by default, choose default
     
 )
 
-st.write(f"## You Have Selected <font color='Aquamarine'>{choice}</font> Dataset", unsafe_allow_html=True)
+st.write(f"## You Have Selected <font color='Blue'>{choice}</font> Dataset", unsafe_allow_html=True)
 
 def get_default_dataset(name):
     data = None
@@ -132,15 +132,15 @@ st.write("## 2: Summary (y variable)")
 if len(y)==0:
    st.write("<font color='Aquamarine'>Note: Label @ y variable has not been selected.</font>", unsafe_allow_html=True)
 elif len(np.unique(y)) <5:
-     st.write('Number of classes:', len(np.unique(y)))
+     st.write('Number of classes:', len(np.unique(y))) #unique means number of categories/types/things to predict #checking stage
 
 else: 
    st.write("<font color='red'>Warning: System detects an unusual number of unique classes. Please make sure that the label @ y is a categorical variable. Ignore this warning message if you are sure that the y is a categorical variable.</font>", unsafe_allow_html=True)
-   st.write('Number of classes:', len(np.unique(y)))
+   st.write('Number of classes:', len(np.unique(y))) #classification / regression??
 
 
 def add_parameter_ui(clf_name):
-    params = dict()
+    params = dict() #dict() function creates a dictionary. A dictionary is a collection which is unordered, changeable and indexed.
     if clf_name == 'SVM':
         C = st.sidebar.slider('C', 0.01, 10.0,value=1.0)
         params['C'] = C
