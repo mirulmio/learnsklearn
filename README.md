@@ -8,3 +8,4 @@ For more info, please contact:
 
 [Mirul](https://www.linkedin.com/in/mirulsraf/)
 
+requirements.txt ; the update must be parallel for all
